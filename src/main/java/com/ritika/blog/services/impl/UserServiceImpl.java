@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         List<User> userList=this.userRepo.findAll();
         List<UserDto> userDtoList=new ArrayList<UserDto>();
         userList.forEach(user->{userDtoList.add(userToUserDto(user));});
-        return List.of();
+        return userDtoList;
     }
 
     @Override
