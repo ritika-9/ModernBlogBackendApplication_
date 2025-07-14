@@ -1,12 +1,18 @@
 package com.ritika.blog.payloads;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ritika.blog.entities.Role;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @NoArgsConstructor
 @Data
 public class UserDto {
+
 
     private int id;
     @NotEmpty
@@ -19,10 +25,13 @@ public class UserDto {
 
     @NotEmpty
     @Size(min=3,message = "Password must be greater then 2 characters!")
+
     private String password;
 
     @NotEmpty
     private String about;
+
+    private Set<RoleDto> roles=new HashSet<>();
 
 
 }

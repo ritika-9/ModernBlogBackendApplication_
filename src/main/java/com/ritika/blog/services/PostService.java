@@ -3,23 +3,42 @@ package com.ritika.blog.services;
 import com.ritika.blog.entities.Category;
 import com.ritika.blog.entities.Post;
 import com.ritika.blog.payloads.PostDto;
+import com.ritika.blog.payloads.PostResponse;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface PostService {
-    public Post createPost(PostDto postDto,Integer categoryId,Integer userId);
 
-    public Post updatePost(PostDto postDto,Integer postId);
+    //create
 
-    public void deletePost(Integer postId);
+    PostDto createPost(PostDto postDto,Integer userId,Integer categoryId);
 
-    public List<Post> getAllPosts();
+    //update
 
-    public PostDto getPostById(Integer postId);
+    PostDto updatePost(PostDto postDto, Integer postId);
 
-    public List<Post> getPostsByCategory(Integer categoryId);
+    // delete
 
-    public List<Post> getPostsByUser(Integer userId);
+    void deletePost(Integer postId);
 
-    public List<Post> searchPostsByTitle(String title);
+    //get all posts
+
+    PostResponse getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
+
+    //get single post
+
+    PostDto getPostById(Integer postId);
+
+    //get all posts by category
+
+    List<PostDto> getPostsByCategory(Integer categoryId);
+
+    //get all posts by user
+    List<PostDto> getPostsByUser(Integer userId);
+
+    //search posts
+    List<PostDto> searchPosts(String keyword);
+
 }
