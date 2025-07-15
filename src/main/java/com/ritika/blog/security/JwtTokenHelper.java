@@ -18,7 +18,7 @@ public class JwtTokenHelper {
     public static final long JWT_TOKEN_VALIDITY = 500 * 60 * 60; // 500 hours in seconds
 
     // It must be at least 256-bit for HS256, 512-bit for HS512
-    private static final String SECRET = "jHnF2fwJdCw1R7N8HYfipqQ0A4QSRHzbAJUOxmb0kIu4uHlXtjs6Lq9sI3TH7pUbgUg6AfCEvxbbchqRhKORRQji";
+    private static final String SECRET = "jwt_secret_token";
 
     private Key getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
